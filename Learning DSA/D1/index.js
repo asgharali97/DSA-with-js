@@ -10,8 +10,8 @@ console.log(a + b)
 // Q sum of message and integer
 let c = 10
 let d = 20
-
-console.log('sum of 10 and 20 is :' + (c + d))
+console.log('sum of 10 and 20 is :', c + d) // this will come like this : sum of 10 and 20 is : 1020 / because the first value is string so js engine convert number to string too
+console.log('sum of 10 and 20 is :' + (c + d)) // we give parthes to seprate value or give string to seprate value . that the js engine first sum of c+d than concatenate the string to it.
 
 // type corsion 
 console.log('10' + 10) // 1010
@@ -69,3 +69,27 @@ let z = v + x + x++ + ++v + ++x
 console.log('v=',v)
 console.log('x=',x)
 console.log('z=',z)
+
+// Q calculate the area and perimeter of rectengle
+let ar = 22
+let per = 10
+console.log('area of rectengle is :', ar * per) 
+console.log('perimeter of rectengle is :',2* (ar + per))
+
+// Q genrate OTP
+let otp = Math.floor((Math.random()*9000) + 1000)
+console.log(otp)
+
+// Q area of tringale by heron's formula
+let a3 = 7
+let b3 = 5
+let c3 = 7
+
+let s = (a3 + b3 + c3)/2
+let area = (Math.sqrt(s*(s-a3) * (s-b3) * (s-c3))).toFixed(2)
+console.log(area)
+
+// Q circumference of circle
+
+let r2 = 8
+console.log(2 * Math.PI * r2)
