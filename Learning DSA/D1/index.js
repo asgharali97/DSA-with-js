@@ -53,7 +53,7 @@ console.log(i)
 
 // what do the i++ and ++i 
 // the i++ will increment the value of i by 1 but change when it use 
-// the ++i will increment the value of i by 1 and also change it when it use
+// the ++i will increment the value of i by 1 and also change it. when it use it will updated
 // here is example
 
 let a1 = 1
