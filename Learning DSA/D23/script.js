@@ -1,4 +1,4 @@
-// Day 22 revsion of day 4,5
+// Day 23 revsion of day 4,5
 // D4
 // Q sum of arrays elements
 // let arr = [1, 2, 3, 4, 5];
@@ -235,15 +235,54 @@ console.log(colors);
 
 // Q Maximum subarray /Kadane's algorithm
 
-let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-let sum = 0
-let max = -Infinity
-for (let i = 0; i < nums.length; i++) {
-    sum += nums[i]
-    max = Math.max(sum,max)
+// let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// let sum = 0
+// let max = -Infinity
+// for (let i = 0; i < nums.length; i++) {
+//     sum += nums[i]
+//     max = Math.max(sum,max)
 
-    if(sum < 0){
-        sum = 0
-    }
+//     if(sum < 0){
+//         sum = 0
+//     }
+// }
+// console.log(sum);
+
+// Q Majority Element/Moor's voting algo 
+// let nums = [2,2,1,1,1,2,2]
+// let ans = nums[0]
+// let count = 0
+
+// for(let i = 0; i < nums.length; i++){
+//     if(count === 0){
+//         ans = nums[i]
+//         count = 1
+//     }else if(ans === nums[i]) count++
+//     else count--
+// }
+// console.log(ans);
+
+// Q Trapping rain Water
+let hieght = [4,2,0,3,2,5]
+let left = new Array(hieght.length);
+let right = new Array(hieght.length)
+let maxLeft = hieght[0]
+let maxRight = hieght[hieght.length-1]
+left[0] = maxLeft, right[right.length-1] = maxRight;
+let ans = 0
+
+for(let i = 1; i < hieght.length; i++){
+    maxLeft = Math.max(maxLeft,hieght[i])
+    left[i] = maxLeft;
 }
-console.log(sum);
+
+for(let i = hieght.length - 2; i >= 0; i--){
+    maxRight = Math.max(maxRight,hieght[i]);
+    right[i] = maxRight
+}
+
+for(let i = 0 ; i < hieght.length ; i++){
+    ans += Math.min(left[i],right[i]) - hieght[i]
+}
+
+console.log(ans);
