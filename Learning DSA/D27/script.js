@@ -1,4 +1,4 @@
-// Day 26 dsa revesion of day 11 and 12
+// Day 27 dsa revesion of day 11 and 12
 // Day 11 Smart Math Problems
 
 // Q HCF/GCF
