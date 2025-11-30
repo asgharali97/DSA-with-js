@@ -33,4 +33,33 @@ each elem enter window once
 and each elem leave window once
 4. the window should be constant size = k constant
 
+
+→ Move to variable window revision now.
+
+Answer this in one sharp line:
+
+When exactly do we shrink the variable window?
+
+we shrink the variable window when it don't match the condition of the problem 
+
+we shrink the variable window when condition become invalid when condtion become false shrink untill it becomes true
+
 */
+
+// Q Longest Substring Without Repeating Characters
+let str = 'abcbbcac'
+let left = 0
+let map = new Map()
+let max = 0
+for(let right = 0; right < str.length; right++){
+    let char = str[right]
+    if(map.has(char) && map.get(char) >= left){
+        left = map.get(char) + 1
+    }
+    map.set(char, right)
+    max = Math.max(max, right - left + 1)
+}
+
+console.log(map);
+console.log(max);
+
