@@ -6,10 +6,10 @@
 let nums = [2, 2, 3, 15]
 let target = 4
 
-for(let i = 0; i < nums.length; i++){
+for (let i = 0; i < nums.length; i++) {
     let com = target - nums[i]
-    for(let j = i + 1; j < nums.length; j++){
-        if(nums[j] === com){
+    for (let j = i + 1; j < nums.length; j++) {
+        if (nums[j] === com) {
             console.log([i, j])
         }
     }
@@ -39,10 +39,30 @@ and each elem leave window once
 Answer this in one sharp line:
 
 When exactly do we shrink the variable window?
-
 we shrink the variable window when it don't match the condition of the problem 
-
 we shrink the variable window when condition become invalid when condtion become false shrink untill it becomes true
+
+okay before moving to the prefix[R]-prefix[l-1] = k
+check this my brute force for this question subarray sum = k
+let arr = [2, 3, 1, 5]
+let k = 6
+let count = 0
+for(let i = 0; i < arr.length; i++){
+    let sum = 0
+    for(let r = i; r < arr.length; r++){
+        sum+=arr[r]
+        if(sum === k){
+            count++
+            console.log(sum, [arr[i] , arr[r]])
+        }
+    }
+}
+console.log(count)
+now tell me in this that why you said in example of brute force in Part 1 brute force example that         
+    if sum == K:
+            count++
+why do we need count what this question actuly want to return the count, index, or elems and this mine code return the correct answer check it is it okay or not and tell me
+
 
 */
 
@@ -51,9 +71,9 @@ let str = 'abcbbcac'
 let left = 0
 let map = new Map()
 let max = 0
-for(let right = 0; right < str.length; right++){
+for (let right = 0; right < str.length; right++) {
     let char = str[right]
-    if(map.has(char) && map.get(char) >= left){
+    if (map.has(char) && map.get(char) >= left) {
         left = map.get(char) + 1
     }
     map.set(char, right)
@@ -62,4 +82,39 @@ for(let right = 0; right < str.length; right++){
 
 console.log(map);
 console.log(max);
+
+// Q subarray sum = K 
+// brute force
+let arr = [2, 3, 1, 5]
+let k = 6
+// let count = 0
+// for(let i = 0; i < arr.length; i++){
+//     let sum = 0
+//     for(let r = i; r < arr.length; r++){
+//         sum+=arr[r]
+//         if(sum === k){
+//             count++
+//             console.log(arr.slice(i,r+1))
+//         }
+//     }
+// }
+// console.log(count)
+
+// using prefix sum optimze approach 
+let sum = 0
+let maparr = new Map()
+let count = 0
+
+map.set(0,1)
+
+for(let i = 0; i < arr.length; i++){
+    sum += arr[i]
+    let need = sum - k
+    if(map.has(need)){
+        count += map.get(need)
+    }
+    map.set(sum , (map.get(sum) || 0) + 1)
+}
+
+console.log(count)
 
