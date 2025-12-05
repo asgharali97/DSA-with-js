@@ -83,6 +83,11 @@ for (let right = 0; right < str.length; right++) {
 console.log(map);
 console.log(max);
 
+/*
+
+*/
+
+
 // Q subarray sum = K 
 // brute force
 let arr = [2, 3, 1, 5]
@@ -110,11 +115,10 @@ map.set(0,1)
 for(let i = 0; i < arr.length; i++){
     sum += arr[i]
     let need = sum - k
-    if(map.has(need)){
-        count += map.get(need)
+    if(maparr.has(need)){
+        count += maparr.get(need)
     }
-    map.set(sum , (map.get(sum) || 0) + 1)
+    maparr.set(sum , (maparr.get(sum) || 0) + 1)
 }
-
+console.log("mapp arr: :",maparr)
 console.log(count)
-
