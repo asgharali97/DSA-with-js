@@ -16,7 +16,7 @@ function UChar() {
             break
         }
     }
-    return -
+    return -1
 
 }
 
