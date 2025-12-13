@@ -26,4 +26,27 @@ function CharReplace(s,k){
     return maxLen
 }
 
-console.log(CharReplace(s,k))
+// console.log(CharReplace(s,k))
+
+
+function CharBrute(s,k){
+   let maxLen = 0
+
+   for(let i = 0 ; i < s.length; i++){
+        let hash = new Array(26).fill(0)
+
+        for(let j = i; j < s.length; j++){
+            let idx = s[j].charCodeAt(0) - 65
+            hash[idx]++
+
+            let maxFreq = Math.max(...hash)
+            let needed = (j - i + 1) - maxFreq
+
+            if(needed <= k){
+                maxLen = Math.max(maxLen, j - i + 1)
+            }else break
+        }
+   }
+   return maxLen
+};
+console.log(CharBrute(s, k))
