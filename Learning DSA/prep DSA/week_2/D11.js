@@ -49,4 +49,30 @@ function CharBrute(s,k){
    }
    return maxLen
 };
-console.log(CharBrute(s, k))
+// console.log(CharBrute(s, k))
+
+// Optimized approach
+function optiCharReplace(s, k){
+    let answer = 0
+    let left = 0
+    let maxFreq = 0
+    let map = new Map()
+
+    for(let right = 0; right < s.length; right++){
+        map.set(s[right],(map.get(s[right]) || 0) + 1);
+
+        maxFreq = Math.max(maxFreq, map.get(s[right]))
+
+        let window = right - left + 1
+        while(window - maxFreq > k){
+            map.set(s[left], map.get(s[left]) - 1)
+            left++
+            window = right - left + 1
+        }
+        answer = Math.max(answer, window)
+    }
+    return answer
+}
+
+
+console.log(optiCharReplace(s,k))
