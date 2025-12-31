@@ -33,6 +33,39 @@
 // console.log(maxlen)
 // console.log(sum)
 
+// let arr = [2, 1, 5, 1, 3, 2]
+// let k = 7
+// let sum = 0
+// let maxLen = 0
+// for (let i = 0; i < arr.length; i++) {
+//     let sum = 0
+//     for (let j = i; j < arr.length; j++) {
+//         sum += arr[j]
+//         if (sum <= k) {
+//             maxLen = Math.max(maxLen, j - i + 1)
+//         }
+//     }
+// }
+
+// console.log(maxLen)
+// revsion 
+// let left = 0
+// let right = 0
+
+// while (right < arr.length) {
+//     sum += arr[right]
+//     while (sum > k) {
+//         left = sum - arr[left]
+//         left++
+//     }
+//     // console.log(maxLen)
+//     if(sum <= k){
+//         maxLen = Math.max(maxLen, right - left + 1);
+//     }
+//     right++
+// }
+// console.log(maxLen)
+
 // Q Maximum sum of any subarray of size K
 // let arr = [2, 1, 5, 1, 3, 2]
 // let k = 3
@@ -42,7 +75,7 @@
 
 // for(let i = 0; i < k; i++){
 //     sum += arr[i]
-// } 
+// }
 // for(let right = k; right < arr.length; right++){
 //     sum = sum - arr[left] + arr[right]
 //     left++

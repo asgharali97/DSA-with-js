@@ -32,3 +32,17 @@ function isAnagramHashMap(s, t) {
     return true
 }
 console.log(isAnagramHashMap(s, t))
+
+// revsion D14
+// brute force
+function revsionBrute(s, t){
+    let str = s.split("").sort().join("");
+    let st = t.split("").sort().join("");
+
+    if(str === st){
+        return true
+    }
+    return false
+}
+
+console.log("revsoio",revsionBrute(s, t))

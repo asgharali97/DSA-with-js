@@ -21,3 +21,21 @@ function UChar() {
 }
 
 console.log(UChar())
+
+// D14 revsion
+let map1 = new Map()
+function revsionUchar(str){
+    for(let i = 0; i < str.length; i++){
+        map1.set(str[i], (map1.get(str[i]) || 0) + 1)
+    }
+
+    for(let i = 0 ; i < str.length; i++){
+        if(map1.get(str[i]) === 1){
+            return i
+        }
+    }
+
+    return -1
+}
+
+console.log(revsionUchar(s))
